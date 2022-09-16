@@ -2,11 +2,14 @@
 
 namespace App\Console;
 
+use App\Jobs\ImageResizeJob;
 use Illuminate\Console\Scheduling\Schedule;
 use Illuminate\Foundation\Console\Kernel as ConsoleKernel;
+use App\Traits\ImageResize;
 
 class Kernel extends ConsoleKernel
 {
+    use ImageResize;
     /**
      * Define the application's command schedule.
      *
@@ -16,6 +19,8 @@ class Kernel extends ConsoleKernel
     protected function schedule(Schedule $schedule)
     {
         // $schedule->command('inspire')->hourly();
+
+        $schedule->command('image:resize')->everyMinute();
     }
 
     /**
