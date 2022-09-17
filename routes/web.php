@@ -1,10 +1,13 @@
 <?php
 
 use App\Http\Controllers\ImageResizeController;
+use App\Http\Controllers\ModelTest;
 use App\Http\Controllers\MovieSearchController;
 use Illuminate\Support\Facades\Redis;
 use Illuminate\Support\Facades\Route;
 use App\Mail\ArzSendMail;
+use App\Models\ModelA;
+use App\Models\ModelB;
 use App\Models\User;
 use Illuminate\Support\Facades\Mail;
 
@@ -22,10 +25,12 @@ use Illuminate\Support\Facades\Mail;
 // Route::get('/', function () {
 //  return view('welcome');
 // });
+Route::get('/te',function(){
 
-Route::get('/', function (ImageResizeController $arzProcess) {
-        echo 'proceesing';
-   return  $arzProcess->processArz();
-//    return  $arzProcess->getArz();
+        // dd(ModelB::find(1)->modelA);
 });
-Route::get('test',MovieSearchController::class);
+Route::get('/', function () {
+        return view('userCreate');
+});
+Route::post('create', ModelTest::class);
+Route::get('test', MovieSearchController::class);
