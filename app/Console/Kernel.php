@@ -20,7 +20,9 @@ class Kernel extends ConsoleKernel
     {
         // $schedule->command('inspire')->hourly();
 
-        $schedule->command('image:resize')->everyMinute();
+        $schedule->command('image:resize')->hourly();
+        $schedule->command('send:arz')->everyTwoHours();
+
     }
 
     /**

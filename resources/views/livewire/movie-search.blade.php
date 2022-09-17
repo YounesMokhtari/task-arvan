@@ -4,8 +4,8 @@
         <button wire:click(movieSearch()) type="submit">search</button>
         <button wire:click="clear()" type="reset" style="color: red">clear</button>
     </form>
-            {{-- <button wire:click="clear()" >clear</button> --}}
-       
+    {{-- <button wire:click="clear()" >clear</button> --}}
+
 
     <div>
         @forelse($searchMovie as $item)
@@ -14,10 +14,8 @@
             <li>Country: {{ $item->country }}</li>
             <li>Rate: {{ $item->imdb_rating }}</li>
             <img src="{{ $item->poster }}">
-          
-
         @empty
-            <div>'no result'</div>
+            <div> no result </div>
         @endforelse
 
     </div>

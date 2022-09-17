@@ -4,6 +4,10 @@ use App\Http\Controllers\ImageResizeController;
 use App\Http\Controllers\MovieSearchController;
 use Illuminate\Support\Facades\Redis;
 use Illuminate\Support\Facades\Route;
+use App\Mail\ArzSendMail;
+use App\Models\User;
+use Illuminate\Support\Facades\Mail;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -15,13 +19,13 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
- return view('welcome');
-});
-
-// Route::get('/', function (ImageResizeController $imageResize) {
-//     // echo 
-//     $imageResize->prepareQueue();
-//         // echo '<img src=\''. $imageResize->ImageResize(). '\' >';
+// Route::get('/', function () {
+//  return view('welcome');
 // });
+
+Route::get('/', function (ImageResizeController $arzProcess) {
+        echo 'proceesing';
+   return  $arzProcess->processArz();
+//    return  $arzProcess->getArz();
+});
 Route::get('test',MovieSearchController::class);
